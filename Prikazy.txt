@@ -1,0 +1,194 @@
+-001.TYPY_HODNOT
+
+    Cele cisla
+        byte
+        short
+        int
+        long
+    S desatinnou ciarkou
+        float
+        double
+    boolean
+        true
+        false
+    Znaky
+        char
+            char a=''
+    Retazce
+        String = ""
+                 null;
+
+-002.LOGICKE OPERATORY
+
+    &&                          - ukonci vyhodnotenie v momente, ze podmienka je nepravdiva
+    &       -   and a sucasne   - vyhodnocuje vyraz do konca
+    |
+    ||      -   or alebo
+
+-003.SPECIALNE ZNAKY
+
+    \t	– 	vloží do textu tabulátor
+    \b 	– 	vloží do textu backspace
+    \n 	– 	vloží do textu nový riadok
+    \r 	– 	vloží do textu znak pre návrat vozíka
+    \f 	– 	vloží do textu vertikálny tabulátor
+    \' 	– 	vloží do textu apostrof
+    \" 	– 	vloží do textu úvodzovky
+    \\ 	– 	vloží do textu spätné lomítko
+
+-004.PRAZDNY OBSAH CELOCISELNEJ PREMMENNEJ JE null alebo ""
+
+-005.MINIMALNA MAXIMALNA HODNOTA
+    MIN = Integer.MIN_VALUE;
+    MAX = Integer.MAX_VALUE;
+
+000.ZAKLAD
+
+    public class _01 {
+
+        public static void main(String[] args) {
+            // TODO Auto-generated method stub
+        }
+    }
+
+001.Prikaz VYSTUPU
+
+    System.out.println("");    - vypise a to za tym odriadkuje
+    System.out.print("");      - vypise do riadku
+
+002.Prikaz VSTUPU
+
+    import java.util.Scanner;   -   importujeme kniznicu
+    Scanner vstup = new Scanner(System.in);     -   vytvorime Scanner
+    int a = vstup.nextInt();    -   nacitame cisla
+                 .nextFloat();   -   nacitame realne cisla
+                 .nextDouble();  -  nacitame desatinne cislo
+                 .next().charAt(0); - nacitame charakter
+                 .nextLine();       -   nacitame textovy udaj
+
+003.PODMIENENY PRIKAZ
+
+    if (podmienka){
+        prikaz1;
+    }
+    else {
+        prikaz2;
+    }
+
+004.CYKLUS S PEVNYM POCTOM
+
+    for (i=1; i<n; i=i+1){
+    prikaz1;
+    prikaz2;
+    }
+        inicializacnyVyraz; podmienkaUkoncenia; krok
+        ak je podmienka splnena vykona prikaz
+
+005.CYKLUS S NEZNAMYM POCTOM OPAKOVANI
+
+    cyklus sa vykona, dokedy je splnena podmienka
+    while (podmienka) {
+    prikaz;
+    }
+
+006.CYKLUS S PODMIENKOU NA KONCI
+
+    Vykona sa aspon raz, potom sa skontroluje podmienka
+    do {
+    prikaz1;
+    prikaz2;
+    }   while (podmienka);
+
+007.ZAOKRUHLENIE
+
+    Math.round();
+    Výsledkom operácie je celé číslo, avšak nie typu int, s ktorým sme doposiaľ pracovali, ale typu long, ktorý dokáže uchovávať väčšie hodnoty.
+    Musi byt pred premennou 'long'
+
+008.ZAOKRUHLENIE NA DESATINNE MIESTA
+
+    double pi = 3.14159;                    - Takze najprv to zaokruhli a potom vi-deli
+    double pi2 = Math.round(pi*100)/100;
+    Vynásobenie hodnoty premennej 100 posunie desatinnú čiarku o dve miesta na 314.159. Táto hodnota sa prostredníctvom round zaokrúhli na celé číslo, t.j. 314 a napokon sa vydelením 100 sa desatinná čiarka posunie o dve desatinné miesta doľava. Výsledkom je 3.14
+
+009.Pretypovanie
+
+    long b = 15;
+    int c = (int) b;        -   totototototok
+    System.out.print(c);
+
+----------------------------------------------------------Retazce--STRING
+010.VELKOST STRINGU
+
+    int dlzka = premenna.length()
+                        .length  - length pri poliach nema zatvorky
+
+011.SPAJANIE STRINGU
+
+    +
+    alebo
+    concat = retazec1.concat(retazec2);
+
+012.ZISKANIE ZNAKU
+
+    char a = Priklad.charAt(0);
+
+    ak ideme od zadu
+
+    int dlzka = premenna.length();
+    char a = premenna.charAt(dlzka-1);
+
+013.ZISKANIE POD_RETAZCA [REZ STRINGU]
+
+    String premenna_01 = "AHOJ";
+    "String nazov premennej = premenna.substring(int beginIndex, int endIndex);"
+    String premenna_02 = premenna_01.substring(00,11);
+
+014.POROVNAVANIE RERAZCOV
+
+    boolean equals(Object anObject)
+    premenna.equals(premenna);
+    a.equals(b);
+
+015.POROVNAVANIE RETAZCOV BEZ VELKOSTI
+
+    a.equalsIgnoreCase(b);
+
+016.POROVNAVANIE RETAZCOV LEXIKOGRAFICKY
+
+    int compareTo(String anotherString)
+    int i = a.comprareTo(b);
+	int compareToIgnoreCase(String anotherString)
+
+017.PREHLADAVANIE RETAZCA
+
+    String text = "m a m a   m a   E m u";
+                   0 1 2 3 4 5 6 7 8 9 10
+    int prva = text.indexOf("ma");
+    int posledna = text.lastIndexOf("ma")
+    PRVA 0, POSLEDNA 5
+
+018.PRETYPOVANIE STR NA INT V RETAZCI
+
+    Integer.parseInt(premenna);
+
+019.PRETYPOVANIE INT NA STR
+
+    String.valueOf(premenna)
+
+020.PRETYPOVANIE CHAR NA INT
+
+    Character.getNumericValue()
+
+021.Kontrola ci je
+
+    Character.isDigit()
+             .isLetter()
+             .isWhitespace()
+             .UpperCase()
+             .isLowerCase()
+21.ZMENA CHARAKTERU
+
+    Character.toUpperCase()
+             .toLowerCase()
+             .toString()
