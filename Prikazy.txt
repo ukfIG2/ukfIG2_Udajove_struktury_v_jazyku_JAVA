@@ -150,7 +150,7 @@
     premenna.equals(premenna);
     a.equals(b);
 
-015.POROVNAVANIE RETAZCOV BEZ VELKOSTI
+015.POROVNAVANIE RETAZCOV BEZ VELKOSTI PISMEN
 
     a.equalsIgnoreCase(b);
 
@@ -192,3 +192,103 @@
     Character.toUpperCase()
              .toLowerCase()
              .toString()
+
+22. VIACNASOBNE VETVENIE
+
+    switch(premenna){
+    case 1: prikaz1;
+            prikaz2;
+            break;
+    case 2: prikaz1
+            prikaz2
+            break;
+    default:    prikaz1
+                prikaz2
+                break;
+    }
+
+    default     -   ak sa nic z "case" nestane tak nastae default.
+    switch      -   kontroluje hodnotu v premmenej s case-om
+
+23. Vynimky
+
+    try {}            -   zacina blok prikazov
+    catch(excepti
+    on e){}   -   odchyti chybu
+    finally{}         -   vzdy sa vykona
+
+24. Chyby
+
+    1   catch(NumberFormatException e) {
+        System.out.println("Retazec nie je cislo!");
+
+    2   catch(ArithmeticException e) {
+        System.out.println("Nulou sa nedeli!");
+
+25. POLIA ZOZNAMY
+
+    int[] arr1;
+    int arr2[];
+    double arr3[];
+    String[] strs;  -   inicializacia pola
+
+26. VYHRADENIE PAMATE
+
+new
+        int[] arr1;
+        arr= new int[100];
+        int arr[] = new int[50];
+
+27. Pocet prvkov
+
+    pocetPrvkov = premenna.length;
+
+28. Vkladanie do zoznamu
+
+    Scanner vstup = new Scanner(System.in);
+        int[] arr = new int[10];
+        for(int i = 0; i < 5; i++) {
+        arr[i] = vstup.nextInt();
+        }
+
+29. KONSTATNA PREMENNA
+
+    final int pocet = 10;
+
+30. NAHODNE CISLA
+
+    Math.random()
+        0.0<=Math.random()<1.0.     -Nam da iba hodnotu od 0.0po1.0.
+        Math.random()*10
+    Zaporne
+        arr[i] = (int) (-50 + Math.random() * 101);
+
+31. PRETYPOVANIE NAHODNEHO CISLA Z DOUBLE NA CELE
+
+    int num = (int)(Math.random() * 9);     -od 0 do 8
+
+32. TRIEDENIE V POLOCH
+
+    for(int i = 0; i < arr.length-1; i++) { // počet prechodov
+   for(int j = 0; j < arr.length-i-1; j++) { // posun po posledný, predposledný atď (n-i) prvok
+      if (arr[j]>arr[j+1]) {  // výmena prvkov
+            int pom = arr[j];
+            arr[j] = arr[j+1];
+            arr[j+1] = pom;
+      }
+   }
+ }
+
+33.  SPLIT
+
+    premenna.split()     -príkaz split rozdelí obsah premennej riadok do poľa,  pričom ako oddeľovač sa uvažuje znak  v argumente
+
+34. Matice
+
+    int n = vstup.nextInt();
+    nt[][] matica = new int[m][n];
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            matica[][] = vstup.();
+
+35.
