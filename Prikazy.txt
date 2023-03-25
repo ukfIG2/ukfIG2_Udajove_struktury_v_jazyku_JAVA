@@ -213,8 +213,7 @@
 23. Vynimky
 
     try {}            -   zacina blok prikazov
-    catch(excepti
-    on e){}   -   odchyti chybu
+    catch(exception e){}   -   odchyti chybu
     finally{}         -   vzdy sa vykona
 
 24. Chyby
@@ -282,6 +281,7 @@ new
 33.  SPLIT
 
     premenna.split()     -príkaz split rozdelí obsah premennej riadok do poľa,  pričom ako oddeľovač sa uvažuje znak  v argumente
+        ,;" "
 
 34. Matice
 
@@ -291,4 +291,97 @@ new
         for(int j = 0; j < n; j++) {
             matica[][] = vstup.();
 
-35.
+35. Precod po cellom POLI foreach
+    for(int "premenna" : "premenna_pola")
+
+-----------------------------------------------------------Subory
+
+36. Na vytvorenie súboru potrebujeme FileWriter, ktorý zabezpečí vytvorenie a následné sprístupnenie súboru a poskytne nástroje na načítavanie znakov.
+
+    FileWriter fW = new FileWriter("file.txt");
+
+37. Následne vytvorené spojenie poskytneme BufferedWriter-u, ktorý existujúci FileWriter rozšíri o schopnosť zapisovať celú postupnosť znakov.
+
+    BufferedWriter bW = new BufferedWriter(fW);
+
+38. Celý zápis môžeme vykonať aj v jednom kroku:
+
+    BufferedWriter bW = new BufferedWriter(new FileWriter("file.txt"));
+
+39. Pre zápis reťazca do súboru používame príkaz
+
+    bW.write(txt);
+
+40. Pre odriadkovanie
+
+    bW.newLine();
+
+41. Stream je po skončení operácií potrebné uzavrieť kvôli uloženiu údajov z medzipamäte a uvoľneniu prístupu k súboru. Používame na to príkaz:
+
+    bW.close();
+    Zatvorení BufferedReader-u sa zavrie aj jemu podriadený FileReader.
+
+42. Samotné čítanie riadku sa vykoná pomocou:
+
+    String s = bR.readLine();
+
+43. Cesta k suboru
+
+    String myFile = "C:\\adresar\\udaje.txt";
+
+44. Vzor pre subory
+----TOTOK
+
+import java.io.*;
+public class JavaApp {
+
+    public static void main(String[] args) {
+        // sem napiste svoj kod
+
+      	String nazov = "nazov/premenna suboru";
+
+      try{
+        FileReader FR = new FileReader(nazov);
+      	BufferedReader BR = new BufferedReader(FR);
+        String riadok = "";
+        while(riadok!=null){
+        riadok = BR.readLine();
+          if(riadok!=null) System.out.println(riadok); //zobrazi cely riadok
+        }//while_riadok
+        BR.close();
+      }//try
+      catch(IOException e){
+      	System.out.println(e.getMessage());
+      	}//catch
+
+----TOTOK
+
+    String riadok;
+    BufferedReader bR;
+    try  {
+        bR = new BufferedReader (new FileReader("data.txt"));
+        while ((riadok = bR.readLine()) != null )  {
+        }
+    } catch (IOException e) {
+        System.out.println(e.getMessage());
+    } finally {
+        bR.close();
+    }
+
+45. Pripravime na nacitanie
+        BufferedReader
+        BufferedReader bW = new BufferedReader(fW)
+-----------------------------------------------------------Subory
+
+------------------------------------------------------------
+Objektovo orientovane programovanie
+
+.ATRIBUTY	-	Pamäť predstavujú premenné, pričom v terminológii OOP ich označujeme ako
+.METODY		-	Schopnosti objektu sú popísané pomocou príkazov programovacieho jazyka a predstavujú čiastkové algoritmy, ktoré riešia jednoduché úlohy. Označujeme ich ako
+.CLASS		-	CLASS je predpis, ktorý určuje, aké budú mať objekty vytvorené na základe jej schopnosti a aké atribúty budú používať. V pamäti však zatiaľ neexistuje a teda jej premenné nemožno využívať ani jeho metódy nemožno volať.
+			Trieda je predpisom, ktorý hovorí aké atribúty a schopnosti má mať inštancia
+.INSTANCIA	-	predstavuje už konkrétny objekt vytvorený v pamäti, ktorý nám poskytuje svoje atribúty i schopnosti reprezentované metódami.
+			Inštancia je už konkrétny prvok, ktorý MÁ vlastnosti a JE SCHOPNÝ vykonávať činnosti
+.VYTVORENIE PAMATE PRE INSTANCIU
+			napr. Strom smrek = new Strom();
+.VOID       -   U metódy, ktorá len vykoná príkazy a nevracia žiadnu hodnotu, uvádzame ako typ void
