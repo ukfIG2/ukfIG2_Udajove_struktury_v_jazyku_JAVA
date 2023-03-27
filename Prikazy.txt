@@ -385,3 +385,15 @@ Objektovo orientovane programovanie
 .VYTVORENIE PAMATE PRE INSTANCIU
 			napr. Strom smrek = new Strom();
 .VOID       -   U metódy, ktorá len vykoná príkazy a nevracia žiadnu hodnotu, uvádzame ako typ void
+
+
+46. public void setAtribut(typ a) { atribut = a; } // prípadne s potrebnými kontrolami
+    Metódam, ktoré nastavujú hodnoty hovoríme settery a majú podobu:
+
+47. public typ getAtribut() { return atribut; }
+    Metódam, ktoré vracajú hodnoty hovoríme gettery, majú vždy typ zodpovedajúci typu atribútu, ktorého hodnotou vracajú a majú podobu
+
+48. this
+    ktoré určuje, že ide o atribút triedy resp. inštancie:
+
+

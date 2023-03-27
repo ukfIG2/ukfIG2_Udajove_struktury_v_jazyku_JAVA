@@ -1,0 +1,59 @@
+import java.util.Scanner;
+import java.io.*;
+public class JavaApp {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        try{
+            BufferedReader br = new BufferedReader(new FileReader(sc.nextLine()));
+            int cr=0,cz=0,cv=0,cs=0;
+            String r = "";
+            while((r=br.readLine()) != null){
+                cr++;
+                cz = cz + r.length();
+                for(int i = 0; i <= r.length()-1; i++){
+                    if(r.charAt(i) == '?' || r.charAt(i) == '!' || r.charAt(i) == '.'){
+                        cv++;
+                    }
+                    if(r.charAt(i) == ' '){
+                        cs++;
+                    }
+                }
+                cs++;
+            }
+            System.out.println("znakov: " + cz + " riadkov: " + cr + " viet: " + cv + " slov: " + cs);
+        } catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
+}
+import java.util.Scanner;
+import java.io.*;
+public class JavaApp {
+    public static void main(String[] args) {
+        // sem napiste svoj kod
+        Scanner vstup = new Scanner(System.in);
+      	String a = vstup.nextLine();
+      try{
+        String riadok;
+        double celkovy=0;
+        int pocet=0;
+        FileReader FR	  = new FileReader(a);
+      	BufferedReader BR = new BufferedReader(FR);
+        while((riadok= BR.readLine()) != null){
+         // System.out.println(riadok);
+          String data[] = riadok.split(":");
+          //System.out.println(data[1]);
+          celkovy += Double.parseDouble(data[1]);
+          pocet++;
+        }//WHILE
+        double priemer = Math.round((celkovy/pocet)*10.0)/10.0;
+        System.out.println(pocet);
+          System.out.println(Math.round(celkovy));
+          System.out.println(priemer);
+        BR.close();
+      }//try
+      catch(IOException e){
+      System.out.println(e.getMessage());
+      }//catch
+    }
+}
