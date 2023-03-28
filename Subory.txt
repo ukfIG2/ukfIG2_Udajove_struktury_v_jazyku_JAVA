@@ -86,3 +86,25 @@ public class JavaApp {
         }
     }
 }
+
+public class Calculator {
+
+  private int a,b;
+  public Calculator(int a, int b) {
+    this.a = a;
+    this.b = b;
+  }
+
+  public Calculator(){
+	a=5; b=10  ;
+  }
+  	public void setA(int ia) {a=ia;}//setter
+  	public void setB(int ib) {b=ib;}
+  public int getA() {return a;}
+  public int getB() {return b;}
+  public int sum() {return a+b;}
+  public int product() {return a*b;}
+  public int difference(){return a-b;}
+  public int quotient(){if (b==0) return -1; else return a/b;}
+  public int modulo(){if (b==0) return -1; else return a%b;}
+}
