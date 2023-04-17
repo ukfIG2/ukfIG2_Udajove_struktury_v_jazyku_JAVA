@@ -330,7 +330,6 @@ new
     String myFile = "C:\\adresar\\udaje.txt";
 
 44. Vzor pre subory
-----TOTOK
 
 import java.io.*;
 public class JavaApp {
@@ -354,46 +353,153 @@ public class JavaApp {
       	System.out.println(e.getMessage());
       	}//catch
 
-----TOTOK
+-----------------------------------------------------------------------------
+45. Set
 
-    String riadok;
-    BufferedReader bR;
-    try  {
-        bR = new BufferedReader (new FileReader("data.txt"));
-        while ((riadok = bR.readLine()) != null )  {
-        }
-    } catch (IOException e) {
-        System.out.println(e.getMessage());
-    } finally {
-        bR.close();
-    }
+    Na prvý pohľad najjednoduchšou štruktúrou na uchovávanie viacerých hodnôt je Set. Táto štruktúra nemôže obsahovať duplicitné prvky – po ich vložení sa duplicitný prvok jednoducho nepridá.
+    V programe používame jej implementácie HashSet a TreeSet.
+    Prvky sa nemusia vypisovať v poradí, v akom boli do zoznamu vkladané. Na zabezpečenie čo najefektívnejšej práce ich metódy údajovej štruktúry ukladú po svojom. Rozdiel medzi implementáciami je v tom, že TreeSet vracia prvky usporiadané.
 
-45. Pripravime na nacitanie
-        BufferedReader
-        BufferedReader bW = new BufferedReader(fW)
------------------------------------------------------------Subory
+    Deklarácia premennej typu Set môže mať podobu niektorej z jej implementácií:
+    HashSet mySet1 = new HashSet();
+    TreeSet mySet2 = new TreeSet();
+
+    Ak chceme vkladať údaje typu String, zápis bude mať podobu:
+    HashSet<String> mySet1 = new HashSet<>();
+    Takýto zápis označujeme ako generický a jeho účelom je zabrániť programátorovi aby do mySet vložil hodnotu iného typu ako je definovaná (String).
+
+46. Pridanie do zoznamu(set)
+
+    add()
+    napr.[ HashSet<String> mySet = new HashSet<String>(); // HashSet deklarácia
+            hset.add("Apple");    // pridanie prvkov do zoznamu
+            hset.add(null);       // HashSet dokáže uchovať aj prázdnu hodnotu
+            Metóda add() vracia true v prípade, ak sa vloženie podarilo a false v prípade, ak daný prvok už v zozname existuje.
+        ]
+
+47. Overenie ci sa prvok nachadza v mnozine
+
+    if (hset.contains("Mango"))
+
+48. Pocet prvkov v mnozine
+
+    System.out.println(hset.size());
+
+49. Vymazanie prvku zo zoznamu:
+
+    hset.remove("Mango");
 
 ------------------------------------------------------------
-Objektovo orientovane programovanie
+50. Map
 
-.ATRIBUTY	-	Pamäť predstavujú premenné, pričom v terminológii OOP ich označujeme ako
-.METODY		-	Schopnosti objektu sú popísané pomocou príkazov programovacieho jazyka a predstavujú čiastkové algoritmy, ktoré riešia jednoduché úlohy. Označujeme ich ako
-.CLASS		-	CLASS je predpis, ktorý určuje, aké budú mať objekty vytvorené na základe jej schopnosti a aké atribúty budú používať. V pamäti však zatiaľ neexistuje a teda jej premenné nemožno využívať ani jeho metódy nemožno volať.
-			Trieda je predpisom, ktorý hovorí aké atribúty a schopnosti má mať inštancia
-.INSTANCIA	-	predstavuje už konkrétny objekt vytvorený v pamäti, ktorý nám poskytuje svoje atribúty i schopnosti reprezentované metódami.
-			Inštancia je už konkrétny prvok, ktorý MÁ vlastnosti a JE SCHOPNÝ vykonávať činnosti
-.VYTVORENIE PAMATE PRE INSTANCIU
-			napr. Strom smrek = new Strom();
-.VOID       -   U metódy, ktorá len vykoná príkazy a nevracia žiadnu hodnotu, uvádzame ako typ void
+    Udajová štruktúra Map predstavuje štruktúru uchovávajúcu dvojice hodnôt <K, V>, kde:
+        K: reprezentuje neopakovateľné (kľúčové) hodnoty
+        V: predstavuje hodnoty, na ktoré je kľúčový údaj namapovaný
+        HashMap - rovnako ako set uchováva hodnoty vo vlastnom poradí
+        TreeMap - umožňuje usporiadať údaje podľa kľúča
+
+        HashMap<String, String> textove = new HashMap<>();
+        HashMap<Integer, String> kombinovane = new HashMap<>();
+
+        Pozor, argumentom nemôže primitívny typ – je potrebné použiť vždy zodpovedajúcu triedu (int – Integer, char – Character, boolean – Boolean, double - Double)
 
 
-46. public void setAtribut(typ a) { atribut = a; } // prípadne s potrebnými kontrolami
-    Metódam, ktoré nastavujú hodnoty hovoríme settery a majú podobu:
+47. Pridavanie do zoznamu(Map)
 
-47. public typ getAtribut() { return atribut; }
-    Metódam, ktoré vracajú hodnoty hovoríme gettery, majú vždy typ zodpovedajúci typu atribútu, ktorého hodnotou vracajú a majú podobu
+    put()
+        Platí, že ak do štruktúry vložíme pre rovnakú kľúčovú hodnotu viac prvkov, zostane uložený posledný.
+            V prípade, ak vložíme pre rôzne kľúče rovnakú druhú hodnotu, štruktúra ju uchová – dôležitým prvkom je vždy len hodnota kľúča.
+    HashMap<String, String> m1 = new HashMap<>();
+    m1.put("NR233AA", "Marhula");
 
-48. this
-    ktoré určuje, že ide o atribút triedy resp. inštancie:
+48. Informácia o tom, či v zozname existuje kľúčová hodnota:
 
+    if (myMap.containsKey ("NR408XX")) ...
+
+49. Počet prvkov v zozname:
+
+    System.out.println(myMap.size());
+
+50. Vymazanie prvku zo zoznamu na základe kľúčovej hodnoty:
+
+    myMap.remove("NR408XX");
+
+51. Vrátenie zodpovedajúcej hodnoty pre daný kľúč:
+
+    String myValue = myMap.get("NR233AA");
+
+52. Pre nájdenie hodnoty a vypísanie kľúča musíme prejsť po zozname kľúčových hodnôt, ktoré nám pre prvky cyklu vráti metóda keySet():
+
+    myMap.put("NR233AA", "Mak");
+    myMap.put("BA23300", "Slivka");
+    for(String key : myMap.keySet()) {      // prejde po zozname kľúčov
+    // ak pre daný kľúč je zodpovedajúca hodnota Slivka
+    if (myMap.get(key).equals("Slivka"))
+        System.out.println(key);  // vypíše kľúč – čiže evidenčné číslo vozidla
+    }
+
+----------------------------------------------------------------------------------------------
+53. List
+
+    Štruktúrou, ktorá sa najviac blíži k poľu a umožňuje nám so zoznamom intuitívne pracovať je List.
+    List má dve implementácie:
+
+    ArrayList
+    LinkedList
+
+    ArrayList je údajová štruktúra pracujúca na princípe poľa. Pri svojom vzniku si vyhradí v pamäti súvislý blok, do ktorého vkladá údaje.
+
+    Platí že:
+        adresa začiatku súvislého bloku je známa,
+        je známa veľkosť jedného prvku (v bytoch),
+        pozícia i-teho prvku v pamäti sa ľahko vypočíta (ako začiatok bloku + i * veľkosť jedného prvku) a tak k nemu možno pristúpiť veľmi rýchlo.
+
+    Indexovanie prvkov začína od 0.
+    Po zaplnení vyhradeného bloku sa v pamäti vyhradí väčší blok, údaje sa doň skopírujú a ukazovateľ na zoznam nasmeruje naň – tieto operácie však nerobí programátor, sú vnútornou súčasťou ArrayListu.
+
+
+54. Vytvorenie zoznamu ľubovoľných objektov
+
+    ArrayList<Osoba> zoznam = new ArrayList<>();
+
+55. Pridanie prvku
+
+    zoznam.add(nejaky objekt príslušného typu);
+
+56. Prečítanie prvku (nečítame cez index v [], ale prostredníctvom metódy)
+
+    myElement = zoznam.get(i);
+
+57. odstránenie prvku na i-tej pozícii
+
+    zoznam.remove(i);
+
+58. odstránenie prvku na i-tej pozícii
+
+    zoznam.remove(i);
+
+59. počet prvkov
+
+    int length = zoznam.size();
+
+60. Pridanie prvku na poziciu
+
+    myList.add(pozícia, prvok)  ak dame na plnu  poziciu posunie doprava +1
+
+61. Prehladavanie v zozname
+
+    indexOf();
+
+    napr.   ArrayList<String> myList = new ArrayList<>(); int pos = myList.indexOf("Peter");
+
+    Vyhladat a spracovat
+
+        ArrayList<String> myList = new ArrayList<>();
+        // ... vloženie údajov do zoznamu
+        for(int i = 0; i < myList.size(); i++) {
+            if (myList.get(i).charAt(0) == 'C')
+            System.out.println(myList.get(i));
+        }
+
+62. LinkedList
 
